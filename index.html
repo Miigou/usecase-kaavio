@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Äänestys</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Äänestykset</h1>
+        <div id="authControls">
+            <button id="registerButton" type="button">Rekisteröidy</button>
+            <button id="loginButton" type="button">Kirjaudu sisään</button>
+        </div>
+        <div id="userControls" hidden>
+            <span id="currentUser"></span>
+            <button id="logoutButton" type="button">Kirjaudu ulos</button>
+        </div>
+    </header>
+
+    <main>
+        <p id="statusMessage" role="status"></p>
+        <section id="adminSection" hidden>
+            <h2>Luo uusi äänestys</h2>
+            <button id="togglePollFormButton" type="button">Luo uusi äänestys</button>
+            <form id="pollForm" hidden>
+                <label for="pollQuestion">Kysymys</label>
+                <input id="pollQuestion" name="pollQuestion" type="text" required maxlength="200">
+                <fieldset>
+                    <legend>Vaihtoehdot (2–5)</legend>
+                    <div id="optionInputs"></div>
+                    <button id="addOptionButton" type="button">Lisää vaihtoehto</button>
+                </fieldset>
+                <button type="submit">Luo äänestys</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Aktiiviset äänestykset</h2>
+            <div id="pollList"></div>
+        </section>
+    </main>
+
+    <dialog id="registerSection">
+        <h2>Rekisteröidy</h2>
+        <label>
+            <input type="radio" name="register-role" value="user" checked>
+            user
+        </label>
+        <label>
+            <input type="radio" name="register-role" value="admin">
+            admin
+        </label>
+        <br>
+        <label for="register-name">Nimi</label>
+        <input id="register-name" type="text" name="register-name">
+        <br>
+        <label for="register-password">Salasana</label>
+        <input id="register-password" type="password" name="register-password">
+        <br>
+        <button id="registerSubmitButton" type="submit">Rekisteröidy</button>
+        <button id="closeRegisterButton" type="button">Sulje</button>
+    </dialog>
+
+    <dialog id="loginSection">
+        <h2>Kirjaudu sisään</h2>
+        <label>
+            <input type="radio" name="login-role" value="user" checked>
+            user
+        </label>
+        <label>
+            <input type="radio" name="login-role" value="admin">
+            admin
+        </label>
+        <br>
+        <label for="login-name">Nimi</label>
+        <input id="login-name" type="text" name="login-name">
+        <br>
+        <label for="login-password">Salasana</label>
+        <input id="login-password" type="password" name="login-password">
+        <br>
+        <button id="loginSubmitButton" type="submit">Kirjaudu sisään</button>
+        <button id="closeLoginButton" type="button">Sulje</button>
+    </dialog>
+
+    <script src="main.js"></script>
+</body>
+</html>
